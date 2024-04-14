@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Scrollbar Style */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #a2a2a2e3;
+}
+
+.auth {
+    background-image: url("https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.msg {
+    background-image: url("/assets/images/doodle_bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bubble_user0 {
+    position: relative;
+    background: #D1FFB4;
+    color: black;
+    text-align: center;
+    /* border-radius: 5% 0 5%  5% ; */
+}
+
+.bubble_user1 {
+    position: relative;
+    background: white;
+    color: black;
+    text-align: center;
+    /* border-radius: 5% 0 5%  5% ; */
+}
+
+/* .bubble_user0:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    z-index: 1;
+    border-style: solid;
+    border-color: transparent #D1FFB4;
+    border-width: 12px 0 12px 20px;
+    top: 12px;
+    right: -20px;
+    margin-top: -12px;
+} */
