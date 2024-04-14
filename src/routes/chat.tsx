@@ -11,7 +11,7 @@ import { IoCheckmarkDoneOutline } from "react-icons/io5";
 export default function Chat() {
     // const { userData } = useAppSelector(selectUser)
     return (
-        <div className="overflow-y-auto">
+        <div className="h-full overflow-y-auto">
             <Chats>
                 <a href='/user/0' className=" hover:bg-gray-100 px-2 py-4 flex gap-2  items-start justify-start">
                     <div className="h-10 w-10 min-w-10 overflow-hidden  items-center flex justify-center rounded-full bg-gray-400 text-white">
