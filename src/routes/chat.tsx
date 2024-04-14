@@ -1,15 +1,15 @@
 'use client'
 import { IoPerson } from "react-icons/io5";
 import { RiChatNewFill } from "react-icons/ri";
-import { useAppSelector } from "../data/hooks";
-import { selectUser } from "../data/features/user/userSlice";
+// import { useAppSelector } from "../data/hooks";
+// import { selectUser } from "../data/features/user/userSlice";
 import { Chats } from "../components";
 import { contacts } from "../data/constants";
 import { generatePhone, generateRandomTime } from "../utils";
 import { IoCheckmarkDoneOutline } from "react-icons/io5";
 
 export default function Chat() {
-    const { userData } = useAppSelector(selectUser)
+    // const { userData } = useAppSelector(selectUser)
     return (
         <div className="overflow-y-auto">
             <Chats>
