@@ -1,30 +1,28 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { ChangeEvent } from 'react';
 import { IoPerson } from 'react-icons/io5';
+import { useAppDispatch, useAppSelector } from '../data/hooks';
+import { selectChat, setProfile } from '../data/features/message/messageSlice';
 
 const ImageUploader: React.FC = () => {
-    const [imageFile, setImageFile] = useState<File | null>(null);
-    const [imagePreview, setImagePreview] = useState<string | null>(null);
+    const dispatch = useAppDispatch()
+    const { profile } = useAppSelector(selectChat)
 
     // Handler for file input change event
     const handleFileChange = (e: ChangeEvent<HTMLInputElement>): void => {
         const file = e.target.files?.[0];
         if (file) {
-            // Update the state with the selected file
-            setImageFile(file);
-
-            // Create a URL for the selected file to preview the image
             const reader = new FileReader();
             reader.onloadend = () => {
-                setImagePreview(reader.result as string);
+                // setImagePreview(reader.result as string);
+                dispatch(setProfile(reader.result as string))
             };
             reader.readAsDataURL(file);
         }
     };
-    
+
 
     return (
         <div >
-            <span className='hidden'>{imageFile?.name}</span>
             <input
                 id='img_input'
                 title="Upload Image"
@@ -35,12 +33,12 @@ const ImageUploader: React.FC = () => {
             />
 
             <div className='flex h-12 w-12 justify-center items-center overflow-hidden bg-gray-200 rounded-full'>
-                {imagePreview ? (
+                {profile ? (
                     <label htmlFor="img_input" className='h-full w-full'>
                         <img
-                            title="Avatar"
+                            title="Upload Avatar"
                             aria-label="preview"
-                            src={imagePreview}
+                            src={profile}
                             alt="Preview"
                             className="h-full w-full object-cover"
                         />

@@ -15,9 +15,7 @@ export default function Chat() {
             <Chats>
                 <a href='/user/0' className=" hover:bg-gray-100 px-2 py-4 flex gap-2  items-start justify-start">
                     <div className="h-10 w-10 min-w-10 overflow-hidden  items-center flex justify-center rounded-full bg-gray-400 text-white">
-
                         <IoPerson className="relative size-8 top-2" />
-
                     </div>
                     <div className="flex flex-col  w-full">
                         <div className="flex items-center justify-between">

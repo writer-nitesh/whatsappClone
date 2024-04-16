@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { MdCall } from "react-icons/md";
 import { BiSolidVideo } from "react-icons/bi";
 import { contacts } from "../data/constants";
-import ImageUploader from "./image";
+import { IoPerson } from "react-icons/io5";
 
 export function TitleBar() {
     const [currentPage, setCurrentPage] = useState<string | null>(null)
@@ -72,18 +72,22 @@ export function NewContactTitleBar() {
         </header>
     )
 }
-export function MessageTitleBar({ userName, isOfficial }: { userName: string, isOfficial: boolean }) {
+export function MessageTitleBar({ image, userName, isOfficial }: { image: string| null, userName: string, isOfficial: boolean }) {
     return (
         <header className="flex items-center justify-between  py-3 bg-primary text-white px-3">
 
             <div className="flex gap-2 items-center">
                 <a href="/" aria-label="back"><HiArrowLeft className="size-4" /></a>
-                <div className="h-8 w-8 min-w-8 overflow-hidden  items-center flex justify-center rounded-full bg-black text-white">
-                    <ImageUploader />
+                <div className="h-8 w-8 min-w-8 overflow-hidden  items-center flex justify-center rounded-full bg-gray-200 text-white">
+                    {
+                        image ? <img src={image} alt={userName} className="h-full w-full object-cover" />
+                            :<IoPerson className="relative size-8 top-2" />
+                    }
+
+
                 </div>
                 <div className="flex  justify-center items-center gap-1">
-                    <span className="overflow-hidden" style={{ WebkitLineClamp: 1, display: '-webkit-box', WebkitBoxOrient: 'vertical' }}>{userName}</span>
-
+                    <span className="overflow-hidden">{userName}</span>
                     {
                         isOfficial && <div className="h-4 w-4 ">
                             <img src="/assets/images/green-tick.png" alt="" className="h-full w-full object-cover" />

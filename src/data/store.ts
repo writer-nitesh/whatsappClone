@@ -3,8 +3,9 @@ import { userSlice } from "./features/user/userSlice";
 import { persistStore, persistReducer, } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { messageSlice } from "./features/message/messageSlice";
+import { screenSlice } from "./features/screen/screenSlice";
 
-const rootReducer = combineSlices(userSlice,messageSlice);
+const rootReducer = combineSlices(userSlice,messageSlice,screenSlice);
 
 const persistConfig = {
     key: 'root',

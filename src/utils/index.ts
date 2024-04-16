@@ -43,3 +43,4 @@ export const getCurrentTime = () => {
         hour12: true,
     });
 };
+

@@ -11,7 +11,7 @@ import { IoCheckmarkDoneOutline } from "react-icons/io5";
 
 
 export default function Message() {
-    const { userName, isOffical, message } = useAppSelector(selectChat)
+    const { userName, isOffical, message,profile } = useAppSelector(selectChat)
     const [msg, setMsg] = useState<string>("")
     const ref = useRef<HTMLDivElement>(null)
 
@@ -21,7 +21,10 @@ export default function Message() {
         setMsg(event.target.value)
     }
     function send() {
-        dispatch(sendMessage({ user: 0, message: msg, time: getCurrentTime() }))
+        if (msg.trim() !== "") {
+            dispatch(sendMessage({ user: 0, message: msg, time: getCurrentTime() }))
+            
+        }
         setMsg("")
     }
 
@@ -37,7 +40,7 @@ export default function Message() {
 
     return (
         <div className=" h-full msg flex flex-col" >
-            <MessageTitleBar userName={userName} isOfficial={isOffical} />
+            <MessageTitleBar image={profile}  userName={userName} isOfficial={isOffical} />
             <div className="h-[85vh] flex flex-col justify-end">
                 <div ref={ref} className=" gap-2 overflow-y-auto overflow-x-hidden my-1   py-2 flex w-[100%] px-2 flex-col  ">
                     {

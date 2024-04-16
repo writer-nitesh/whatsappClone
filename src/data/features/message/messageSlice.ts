@@ -7,6 +7,7 @@ export interface MessageState {
 }
 
 export interface ChatState {
+    profile: string | null;
     userName: string;
     isOffical: boolean;
     message?: MessageState[];
@@ -14,8 +15,9 @@ export interface ChatState {
 
 
 const initialState: ChatState = {
-    userName: "Harry",
-    isOffical: false
+    profile: null,
+    userName: "WhatsApp",
+    isOffical: true
 };
 export const messageSlice = createAppSlice({
     name: "chat",
@@ -31,6 +33,9 @@ export const messageSlice = createAppSlice({
         setIsOfficial: (state, action: PayloadAction<boolean>) => {
             return { ...state, isOffical: action.payload }
         },
+        setProfile: (state, action: PayloadAction<string>) => {
+            return { ...state, profile: action.payload }
+        },
         clearAll() {
             return initialState
         }
@@ -41,5 +46,5 @@ export const messageSlice = createAppSlice({
 });
 
 export const { selectChat } = messageSlice.selectors;
-export const { setIsOfficial, sendMessage, clearAll, setUserName } = messageSlice.actions;
+export const { setIsOfficial, sendMessage, clearAll, setUserName,setProfile } = messageSlice.actions;
 export default messageSlice.reducer;
